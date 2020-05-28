@@ -1,0 +1,46 @@
+{
+  "products": [
+    {
+      "image": "brick.jpg",
+      "name": "Кирпич облицовочный",
+      "price": 25.00,
+      "article": "1",
+      "available": true
+    },
+    {
+      "image": "silicate-brick.jpg",
+      "name": "Силикатный кирпич",
+      "price": 45.00,
+      "article": "2",
+      "available": true
+    },
+    {
+      "image": "gazeblock.jpg",
+      "name": "Газоблок автоклавный",
+      "price": 720.50,
+      "article": "3",
+      "available": true
+    },
+    {
+      "image": "penoblock.jpg",
+      "name": "Пеноблок",
+      "price": 550.00,
+      "article": "4",
+      "available": true
+    },
+    {
+      "image": "cement.jpg",
+      "name": "Цемент",
+      "price": 2050.00,
+      "article": "5",
+      "available": true
+    },
+    {
+      "image": "shpak.jpg",
+      "name": "Шпаклёвка",
+      "price": 355.50,
+      "article": "6",
+      "available": true
+    }
+  ]
+}
