@@ -1,0 +1,183 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Шаблон лабораторной работы</title>
+</head>
+<body>
+
+<script>
+/*
+Выводите значения в консоль браузера с помощью команды console.log() (вызов консоли: F12->консоль)
+
+Задание 1. Напишите функцию power(), которая принимает две целочисленных значения. Функция должна возвращать результат возведения первого числа в степень второго.
+*/
+
+console.log("Задание 1.")
+function power(x,y) {
+	var res = 1;
+	for (let i = 0; i < y; i++) {
+		res=res*x;
+	}
+	return res;
+}
+console.log(power(5,4)); //5^4=625
+
+/*
+Задание 2. Напишите функцию compare(), которая принимает целочисленное значение x и возвращает анонимную функцию. Анонимная функция должна принимать целочисленное значение y и возвращать результат сравнения значений y и x как:
+- Если y больше, чем x, то возвращается true
+- Если y меньше, чем x, то возвращается false
+- Если значения равны, то возвращается null
+*/
+
+console.log("Задание 2.")
+function compare(x) {
+	return function(y) {
+		if (x<y) {
+			return true;
+		}
+		else if (x>y) {
+			return false;
+		}
+		else if (x==y) {
+			return null;
+		}
+	}
+}
+var res=compare(100);
+console.log(res(10)); //100>10, Выведет false
+
+/*
+Задание 3. Дана строка. Сделайте заглавным первый символ каждого слова этой строки. Для этого сделайте вспомогательную функцию ucfirst, которая будет получать строку, делать первый символ этой строки заглавным и возвращать обратно строку с заглавной первой буквой. 
+*/
+
+console.log("Задание 3.")
+function upCase(text) {
+	var arr = text.split(' ');
+	for (let i = 0; i < arr.length; i++) {
+	arr[i] = ucfirst(arr[i]);
+	}
+	return string = arr.join(" ");
+}
+function ucfirst(str) {
+	var a = str[0].toUpperCase() + str.substr(1);
+	return(a);
+}
+var example= "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+console.log(example);
+console.log(upCase(example));
+
+/*
+Задание 4. Создайте пустой объект book1. Добавьте объекту свойства: title, pubYear и price с произвольными значениями. 
+Добавьте объекту book1 свойство show. Свойство должно содержать анонимную функцию выводящую название и цену книги.
+Создайте объект book2 и установите свойства title, pubYear и price с произвольными значениями в момент создания объекта.
+Опишите функцию showBook(), которая выводит название и цену книги. Добавьте объекту book2 свойство show. Свойство должно содержать функцию showBook().
+Выведите свойства объектов в цикле.
+Вызовите метод show() у обоих объектов.
+*/
+
+console.log("Задание 4.")
+function showBook(title, price) {
+	var res=title+" "+price;
+	return res;
+}
+let book1 = {
+	title: "HolyWar",
+	pubYear: 2005,
+	price: 2500,
+	show: function() {
+		var res=this.title+" "+this.price;
+		return res;
+	}
+};
+let book2 = {
+	title: "UnholyWar",
+	pubYear: 2006,
+	price: 3000,
+};
+book2.show= function() {
+	return showBook(this.title, this.price);
+}
+
+console.log(book1.show());
+console.log(book2.show());
+
+/*
+Задание 5. Дан исходный код:
+var a = [5, 12];
+var b = [];
+a[99] = 7;
+Записать в массив b квадраты значений массива a:
+- с помощью цикла for
+- с помощью цикла for in
+*/
+
+console.log("Задание 5.")
+var a = [5, 12];
+var b = [];
+a[99] = 7;
+for(var i = 0, length1 = a.length; i < length1; i++){      //цикл for с записью всех значений
+	b[i]=power(a[i], 2);
+}
+console.log(b);
+
+for(var i = 0, length1 = a.length; i < length1; i++) {      //цикл for с записью нулей вместо пустых значений
+	if (!isNaN(a[i])) {
+		b[i]=power(a[i], 2);
+	}
+	else {
+		b[i]=0;
+	}
+}
+console.log(b);
+
+for (var i in a) {       //цикл for in  
+	b=power(a[i],2);
+	console.log(b);
+}
+
+/*
+Задание 6. Дан исходный код:
+var s = 'Мы знаем, что монохромный цвет - это градации серого';
+var txt = 'хром';
+var word;
+В значении переменной s найдите слово, содержащее подстроку, которая является значением переменной txt и присвойте его переменной word.
+*/
+
+console.log("Задание 6.")
+var s = 'Мы знаем, что монохромный цвет - это градации серого';
+var txt = 'хром';
+var word;
+function findLiter(string, seekstr) {
+	var part = string.indexOf(seekstr);
+	var firstin = string.lastIndexOf(" ", part);
+	var nextin = string.indexOf(" ", part);
+	var res = string.slice(firstin, nextin);
+	return res;
+}
+word=findLiter(s,txt);
+console.log(word);
+
+/*
+Задание 7. Создайте конструктор Book со свойствами title, pubYear и price. 
+Создайте объект типа Book передав в конструктор произвольные значения.
+Добавьте в прототип конструктора Book метод show, который выводит значения свойств title и price.
+Вызовите метод show созданного объекта.
+*/
+
+console.log("Задание 7.")
+function Book(title, pubYear, price){
+    this.title = title;
+    this.pubYear = pubYear;
+    this.price = price;
+}
+let book = new Book('HolyPeace', 2007, 3500);
+    Book.prototype.show = function() {
+        var res= this.title+" "+this.pubYear+" "+this.price;
+        return res;
+    }
+console.log(book.show());
+
+</script>
+</body>
+</html>

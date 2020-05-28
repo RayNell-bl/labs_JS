@@ -1,0 +1,132 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Шаблон лабораторной работы</title>
+</head>
+<body>
+<script>
+
+/*
+Выводите значения в консоль браузера с помощью команды console.log() (вызов консоли: F12->консоль)
+Задание 1. Напишите код, который возводит число 2 в степень 10 используя цикл while.
+*/
+function powWhile(x, y) {
+	let res = 1;
+	let i = 0;
+	while (i!=y) {
+		res=res*x;
+		i++;
+	}
+	return res;
+}
+console.log(powWhile(2,10));
+
+/*
+Задание 2. Напишите код, который возводит число 2 в степень 10 используя цикл for.
+*/
+function powFor(x,y) {
+	var res = 1;
+	for (let i = 0; i < y; i++) {
+		res=res*x;
+	}
+	return res;
+}
+console.log(powFor(2,10));
+
+/*
+Задание 3. Создайте переменную age и присвойте её целочисленное значение. Используя конструкцию if-else if-else, напишите программу, которая проверяет значение в переменной age и: 
+- если значение попадает в диапазон 18-59 (включительно) то выводит сообщение "Вам еще работать и работать"
+- если значение больше больше 59 то выводит сообщение "Вам пора на пенсию"
+- если значение попадает в диапазон 1-17 (включительно) то выводит сообщение "Вам работать еще рано - учитесь".
+*/
+function ageMeter(age) {
+	let res;
+	if (age>=18 && age<=59) {
+		res="Вам еще работать и работать";
+	}
+	else if (age>=1 && age<=17) {
+		res="Вам работать еще рано - учитесь";
+	}
+	else {
+		res="Вам пора на пенсию";
+	}
+	return res;
+}
+
+let age=19;
+console.log("age = "+age+" "+ageMeter(age));
+age=5;
+console.log("age = "+age+" "+ageMeter(age));
+age=72;
+console.log("age = "+age+" "+ageMeter(age));
+
+/*
+Задание 4. С помощью двух вложенных циклов нарисуйте следующую пирамидку: 
+        1
+       22
+      333
+     4444
+    55555
+   666666
+  7777777
+ 88888888
+999999999 
+*/
+document.write('<br>');
+
+/*
+Пирамида с двумя вложенными циклами
+*/
+for (let t= 1; t < 10; t++) {
+	for (let o= 9; o > t; o--) {
+		document.write('&nbsp');
+	}
+	for (let i= 0; i < t; i++) {
+		document.write(t);
+	}
+	document.write('<br>');
+}
+
+document.write('<br>');
+
+/*
+Пирамида с одним вложенным циклом
+*/
+for (let t= 1; t < 10; t++) {
+	for (let i= 0; i < t; i++) {
+		document.write(t);
+	}
+	document.write('<br>');
+}
+/*
+Задание 5. Переменная num может принимать 4 значения: 1, 2, 3 или 4. Если она имеет значение '1', то в переменную result запишем 'зима', если имеет значение '2' – 'весна' и так далее. Решите задачу через switch-case. Результат выведите в консоль.
+*/
+function determineSeason(x) {
+	let res;
+	switch (x) {
+		case 1:
+			res="Зима"
+			break;
+		case 2:
+			res="Весна"
+			break;
+		case 3:
+			res="Лето"
+			break;
+		case 4:
+			res="Осень"
+			break;
+		default:
+			res="Неподходящее число";
+			break;
+	}
+	return res;
+}
+
+for (let i = 0; i<5; i++) {
+	console.log("num= "+i+", res= "+determineSeason(i));
+}
+</script>
+</body>
+</html>

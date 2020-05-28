@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>ES6</title>
+<script type="text/javascript">
+function getRandomNumber (min, max) {
+	var number;
+	number = Math.floor(Math.random() * (max - min)) + min;
+	return number;
+}
+
+/*
+Задача 3. Сделайте 3 промиса, в каждом из которых расположена функция setTimeout со случайно задержкой от 1 до 5 секунд. Пусть каждый промис своим результатом возвращает эту задержку. С помощью Promise.all получите массив результатов, найдите его сумму, выведите на экран. 
+*/
+
+let promises = [
+	new Promise((resolve, reject) => {
+		let interval = getRandomNumber(1,5);
+		setTimeout(() => resolve(interval), interval * 1000);
+	}),
+	new Promise((resolve, reject) => {
+		let interval = getRandomNumber(1,5);
+		setTimeout(() => resolve(interval), interval * 1000);
+	}),
+	new Promise((resolve, reject) => {
+		let interval = getRandomNumber(1,5);
+		setTimeout(() => resolve(interval), interval * 1000);
+	})
+];
+Promise.all(promises)
+.then(results => {
+	let sum= results[0] + results[1] + results[2];
+	console.log(sum);
+});
+</script>
+</head>
+<body>
+</body>
+</html>
